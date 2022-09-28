@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+          <form #departmentForm="ngForm" (ngSubmit)="onSubmit(departmentForm.valid && departmentForm.value)">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="name">Name</label>
+                <input
+                  [ngClass]="{'is-invalid': name.invalid && (name.dirty || name.touched)}"
+                  required
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Type Name"
+                  name="name"
+                  #name="ngModel"
+                  [(ngModel)]="department.name"
+                >
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="invalid-feedback">
+                  <div *ngIf="name.errors!['required']">
+                    department Name is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="location">Location</label>
+                <input
+                  [ngClass]="{'is-invalid': location.invalid && (location.dirty || location.touched)}"
+                  required
+                  type="text"
+                  class="form-control"
+                  id="location"
+                  placeholder="Type Location"
+                  name="location"
+                  #location="ngModel"
+                  [(ngModel)]="department.location"
+                >
+                <div *ngIf="location.invalid && (location.dirty || location.touched)" class="invalid-feedback">
+                  <div *ngIf="location.errors!['required']">
+                    department location is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="location">floor Number</label>
+                <input
+                  [ngClass]="{'is-invalid': floorNumber.invalid && (floorNumber.dirty || floorNumber.touched)}"
+                  required
+                  type="text"
+                  class="form-control"
+                  id="location"
+                  placeholder="Type floorNumber"
+                  name="floorNumber"
+                  #floorNumber="ngModel"
+                  [(ngModel)]="department.floorNumber"
+                >
+                <div *ngIf="floorNumber.invalid && (floorNumber.dirty || floorNumber.touched)" class="invalid-feedback">
+                  <div *ngIf="floorNumber.errors!['required']">
+                    department floor Number is required
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <button [disabled]="!departmentForm.valid" type="submit" class="btn btn-primary my-3 float-right">Submit</button>
+          </form>
+        </div>
+    </div>
+</div>

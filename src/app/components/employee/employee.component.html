@@ -1,0 +1,43 @@
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-6">
+            <button class="btn btn-outline-primary" [routerLink]="['/employee/add']">Add new Employee</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Fist Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Department Name</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of employees">
+                    <th scope="row">{{item.id}}</th>
+                    <td>{{item.fisrtName}}</td>
+                    <td>{{item.lastName}}</td>
+                    <td>{{item.phone}}</td>
+                    <td>{{item.address}}</td>
+                    <td>{{item.title}} </td>
+                    <td>{{item.salary}} </td>
+                    <td>{{item.department.name}}</td>
+                    <td><button [routerLink]="['edit/', item.id]" class="btn btn-outline-warning">Edit</button></td>
+                    <td><button (click)="onClick(item.id)" class="btn btn-outline-danger">Delet</button></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+

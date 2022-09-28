@@ -1,0 +1,34 @@
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-6">
+            <button class="btn btn-outline-primary" [routerLink]="['/department/add']">Add new Department</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">department Name</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Floor number</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of departments">
+                    <th scope="row">{{item.id}}</th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.location}}</td>
+                    <td>{{item.floorNumber}}</td>
+                    <td><button [routerLink]="['edit/', item.id]" class="btn btn-outline-warning">Edit</button></td>
+                    <td><button (click)="onClick(item.id)" class="btn btn-outline-danger">Delet</button></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
